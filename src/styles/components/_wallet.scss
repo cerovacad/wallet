@@ -1,0 +1,77 @@
+///////////just for development:
+// body {
+//     background: $light-grey;
+// }
+
+// .container {
+//     margin: 0 auto;
+//     padding: 0;
+//     width: 793px;
+// }
+
+////////////////////////////
+@font-face {
+    font-family: "Roboto";
+    src: url("https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2")
+}
+
+.wallet {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    margin: 0;
+    width: 32%;
+}
+
+.wallet__header {
+    background-color: white;
+    font-size: $xs-size;
+    margin-bottom: .1rem;
+    padding: 1.9rem;
+}
+
+.wallet__card {
+    background-color: white;
+    padding: $m-size 0 4rem 0;
+    text-align: center;
+}
+
+.wallet__card__content {
+    background-color: white;
+    margin: 0 auto $l-size auto;
+    width: 55%;
+}
+
+.wallet__card__content__balance {
+    color: $dark-navy;
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    word-break: break-all;
+}
+
+.wallet__card__content__currency {
+    color: $dark-navy;
+    font-weight: 1000;
+    margin-bottom: $l-size;
+}
+
+.wallet__card__content__button__blue {
+    border: none;
+    border-radius: .3rem;
+    background: $light-blue;
+    color: darken($light-blue, 50%);
+    cursor: pointer;
+    font-size: $xs-size;
+    margin-bottom: $xs-size;
+    min-width: 3rem;
+    min-height: 2rem;
+    padding: 0 $s-size;
+    width: 100%;
+}
+
+.wallet__card__content__button__grey {
+    @extend .wallet__card__content__button__blue;
+    background: $off-grey;
+    color: darken($light-grey, 70%);
+}
