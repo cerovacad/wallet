@@ -1,10 +1,8 @@
-
-// .container {
-//     margin: 0 auto;
-//     padding: 0;
-//     width: 793px;
-// }
-
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width: 793px;
+}
 ////////////////////////////
 @font-face {
     font-family: "Roboto";
@@ -52,6 +50,12 @@
     margin-bottom: $l-size;
 }
 
+.wallet__card__content__buttonGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .wallet__card__content__button__blue {
     border: none;
     border-radius: .3rem;
@@ -63,7 +67,6 @@
     min-width: 3rem;
     min-height: 2rem;
     padding: 0 $s-size;
-    width: 100%;
 }
 
 .wallet__card__content__button__grey {
