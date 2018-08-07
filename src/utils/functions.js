@@ -16,3 +16,11 @@ export const descriptionToText = (description) => {
             return description
     }
 }
+
+export const typeToText = (type) => {
+    if(type === 'outgoing'){
+        return "Outgoing transaction"
+    }else{
+        return "Incoming transaction"
+    }
+}

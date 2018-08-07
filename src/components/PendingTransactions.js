@@ -17,22 +17,22 @@ const Transactions = () => (
         })}
         <Card className="pendingTransaction_controls">
             <div className="pendingTransaction_controls_btn">
-            <Button
-                fill
-                minimal
-                active
-                text="Request funds"
-                className="bp3-intent-success" 
-            />
+                <Button
+                    fill
+                    minimal
+                    active
+                    text="Request funds"
+                    className="bp3-intent-success" 
+                />
             </div>
             <div className="pendingTransaction_controls_btn">
-            <Button
-                fill
-                minimal
-                active
-                text="Send funds"
-                className="bp3-intent-danger"
-            />
+                <Button
+                    fill
+                    minimal
+                    active
+                    text="Send funds"
+                    className="bp3-intent-danger"
+                />
             </div>
         </Card>
     </div>

@@ -1,0 +1,47 @@
+.isRequesting{
+    width: 360px;
+    font-weight: 100;
+    p, h4{
+        margin: 0;
+    }
+}
+.isRequesting_header{
+    color: $dark-red;
+    display: flex;
+    align-items: center;
+}
+.isRequesting_balance{
+    margin-left: auto;
+    font-weight: 600;
+}
+.isRequesting_hr{
+    opacity: 0.25;
+}
+.isRequesting_user{
+    margin: 1rem 0;
+}
+.isRequesting_deadline{
+    margin-bottom: 1.5rem;
+}
+.isRequesting_description{
+    margin: 1rem 0;
+    p{
+        margin-top: 0.75rem;
+    }
+}
+.isRequesting_files{
+    margin: 2rem 0;
+}
+.isRequesting_files_tag{
+    margin-top: 0.5rem;
+    width: 100%;
+    color: grey !important;
+}
+
+
+
+
+.isRequesting_controls{
+    display: flex;
+    justify-content: space-evenly;
+}
