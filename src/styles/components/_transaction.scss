@@ -1,0 +1,45 @@
+.transaction{
+    display: flex;
+    font-weight: 100;
+    p{
+        margin: 0;
+        font-weight: 100;
+    }
+}
+.transaction_title{
+    margin: 0 0 1rem 0;
+}
+.transaction_balance{
+    margin-left: auto;
+    font-weight: 600;
+}
+.transaction_balance_icon{
+    margin-left: 0.25rem;
+    margin-top: 0.25rem;
+}
+.transaction_status{
+    margin: 1rem 0 0 0;
+}
+.transaction_status_icon{
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+}
+// TRANSACTION STATUS COLOR
+.in-progress{
+}
+.waiting-for-escrow{
+    color: $dark-red;
+}
+.waiting-for-your-reply{
+    color: $borange;
+}
+.delivered-and-escrow-released{
+    color: $ggreen;
+}
+// TRANSACTION BALANCE COLOR
+.incoming{
+    color: $ggreen;
+}
+.outgoing{
+    color: $dark-red;
+}
