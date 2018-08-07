@@ -113,7 +113,6 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
@@ -154,6 +153,29 @@ module.exports = {
               compact: true,
             },
           },
+          // Added for scss for production.
+          {
+            test: /\.scss$/,
+            include: [paths.appSrc, paths.appNodeModules],
+            use: [
+              {
+                loader: require.resolve('style-loader'),
+                options: {
+                  sourceMap: shouldUseSourceMap
+                }
+              },
+              {
+                loader: require.resolve('css-loader'),
+              },
+              require.resolve('resolve-url-loader'),
+              {
+                loader: require.resolve('sass-loader'),
+                options: {
+                  sourceMap: shouldUseSourceMap
+                }
+              }
+            ]
+          },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -167,7 +189,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test:/\.css$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -212,28 +234,6 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-          },
-          {
-              test: /\.scss$/,
-              include: [paths.appSrc, paths.appNodeModules],
-              use: [
-                {
-                  loader: require.resolve('style-loader'),
-                  options: {
-                    sourceMap: shouldUseSourceMap
-                  }
-                },
-                {
-                  loader: require.resolve('css-loader'),
-                },
-                require.resolve('resolve-url-loader'),
-                {
-                  loader: require.resolve('sass-loader'),
-                  options: {
-                    sourceMap: shouldUseSourceMap
-                  }
-                }
-            ]
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
