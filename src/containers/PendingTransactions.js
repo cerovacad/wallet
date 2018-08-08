@@ -3,7 +3,7 @@ import Transaction from '../components/Transaction'
 import uid from 'uid'
 import { Card, Button } from '@blueprintjs/core'
 
-const Transactions = () => (
+const PendingTransactions = ({ transactions }) => (
     <div className="pendingTransactions">
         <Card className="pendingTransactions_header">
             <h4>Pending transactions</h4>
@@ -38,46 +38,4 @@ const Transactions = () => (
     </div>
     );
 
-export default Transactions;
-
-const transactions = [{
-    type: 'incoming',
-    title: 'Website changes',
-    description: 'requesting',
-    user: 'example@gmail.com',
-    status: 'in-progress',
-    balance: 0.008
-},{
-    type: 'outgoing',
-    title: 'Photo retouching',
-    description: 'sending',
-    user: 'qewqewqwewq@wqail.com',
-    status: 'waiting-for-escrow',
-    balance: 0.06
-},{
-    type: 'incoming',
-    title: 'Website changes',
-    description: 'is-sending',
-    user: 'example@gmail.com',
-    status: 'waiting-for-your-reply',
-    balance: 0.008
-},{
-    type: 'outgoing',
-    title: 'Photo retouching',
-    description: 'is-requesting',
-    user: 'qewqewqwewq@wqail.com',
-    status: 'waiting-for-escrow',
-    balance: 0.06
-},{
-    type: 'incoming',
-    title: 'Photo retouching',
-    description: 'is-sending',
-    user: 'qewqeewq@wqail.com',
-    status: 'delivered-and-escrow-released',
-    balance: 0.9
-}]
-
-// waiting for escrow
-// escrow funds recived
-// work in progress
-// delivered
+export default PendingTransactions;
