@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { InputGroup, FormGroup, Button } from "@blueprintjs/core";
 
-
-class Login extends Component {
+class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,8 +10,8 @@ class Login extends Component {
         };
         this.onInputEmail = this.onInputEmail.bind(this);
         this.onInputPassword = this.onInputPassword.bind(this);
-        this.onLogin = this.onLogin.bind(this);
         this.onCreateAccount = this.onCreateAccount.bind(this);
+        this.onLogin = this.onLogin.bind(this);
     };
 
     onInputEmail(e) {
@@ -26,15 +25,15 @@ class Login extends Component {
     };
 
     onCreateAccount(e) {
-        console.log("Create account clicked");
+        console.log("upper btn clicked");
     };
     onLogin(e) {
-        console.log("Login clicked");
+        console.log("lower btn clicked");
     };
 
     render() {
         return (
-            <div className="signup">
+            <div className="user-form">
                 <FormGroup
                     label="Email"
                     labelFor="text-input"
@@ -57,27 +56,39 @@ class Login extends Component {
                         onChange={this.onInputPassword}
                     />
                 </FormGroup>
-                <div className="signup__btnWrapper">
+                <div className="user-form__buttons">
                     <Button
                         fill
                         minimal
                         active
-                        className="bp3-intent-primary signup__btnWrapper__btn"
-                        text="Login"
-                        onClick={this.onLogin}
+                        className="bp3-intent-primary user-form__buttons__upper"
+                        text={(this.props.match.path === "/signup")
+                            ? "Create account"
+                            : "Login"
+                        }
+                        onClick={this.onCreateAccount}
                     />
                     <Button
                         fill
                         minimal
                         active
                         className="bp3--dark-text-color-muted"
-                        text="Create account"
-                        onClick={this.onCreateAccount}
+                        text={(this.props.match.path === "/login")
+                            ? "Create account"
+                            : "Login"
+                        }
+                        onClick={this.onLogin}
                     />
                 </div>
+                {
+                    (this.props.match.path === "/login")
+                    && <div className="user-form__message">
+                        <p>Forgot password?</p>
+                    </div>
+                }
             </div>
         );
     };
 };
 
-export default Login;
+export default UserForm;

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Wallet from "../components/Wallet";
 import Transactions from "../components/PendingTransactions"
 import Aux from "../containers/Aux";
-import Signup from '../pages/Signup'
+import UserForm from "../components/UserForm";
 
 const AppRouter = () => {
   return (
@@ -13,7 +13,8 @@ const AppRouter = () => {
           <Route path="/wallet" component={Wallet} />
           <Route path="/transactions" component={Transactions} exact />
           <Route path="/is-requesting" component={Aux} exact />
-          <Route path='/signup' component={Signup} />
+          <Route path='/signup' component={UserForm} />
+          <Route path='/login' component={UserForm} />
         </Switch>
       </div>
     </BrowserRouter>
