@@ -1,0 +1,17 @@
+.signup {
+    background: white;
+    box-sizing: border-box;
+    font-weight: 800;
+    margin: 0 auto;
+    padding: 4.2rem 3rem 6rem 3rem;
+    width: 360px;
+}
+
+.signup__btnWrapper {
+    margin: $m-size auto 2.8rem auto;
+    width: 45%;
+}
+
+.signup__btnWrapper__btn {
+    margin-bottom: 1rem;
+}
