@@ -1,11 +1,12 @@
 import React from "react";
 import { Button } from "@blueprintjs/core";
+import ContentHeader from "./ContentHeader";
 
 
 const Wallet = () => {
     return (
         <div className="wallet">
-            <h5 className="wallet__header">Lucid Wallet</h5>
+            <ContentHeader title={"Lucid Wallet"}/>
             <div className="wallet__card">
                 <div className="wallet__card__content">
                     <p className="wallet__card__content__balance">1,748</p>
@@ -15,7 +16,7 @@ const Wallet = () => {
                         minimal
                         active
                         text="Top-up account"
-                        className="bp3-intent-primary wallet__card__content__button" />
+                        className="bp3-intent-primary vertical-buttons__upper" />
 
                     <Button
                         fill

@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Roboto";
-    src: url("https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2")
-}
-
 .wallet {
     font-family: "Roboto";
     box-sizing: border-box;
@@ -10,16 +5,9 @@
     width: 360px;
 }
 
-.wallet__header {
-    background-color: white;
-    font-size: $xs-size;
-    margin-bottom: .1rem;
-    padding: 1.9rem;
-}
-
 .wallet__card {
     background-color: white;
-    padding: $m-size 0 4rem 0;
+    padding: $m-size 0 9rem 0;
     text-align: center;
 }
 
@@ -44,6 +32,3 @@
     margin-bottom: $l-size;
 }
 
-.wallet__card__content__button{
-    margin-bottom: 1rem;
-}

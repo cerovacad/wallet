@@ -61,7 +61,7 @@ class UserForm extends Component {
                         fill
                         minimal
                         active
-                        className="bp3-intent-primary user-form__buttons__upper"
+                        className="bp3-intent-primary vertical-buttons__upper"
                         text={(this.props.match.path === "/signup")
                             ? "Create account"
                             : "Login"
