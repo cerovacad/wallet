@@ -2,32 +2,24 @@ import React, { Component } from "react";
 import { InputGroup, FormGroup, Button } from "@blueprintjs/core";
 
 class UserForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: ""
-        };
-        this.onInputEmail = this.onInputEmail.bind(this);
-        this.onInputPassword = this.onInputPassword.bind(this);
-        this.onCreateAccount = this.onCreateAccount.bind(this);
-        this.onLogin = this.onLogin.bind(this);
+    state = {
+        email: "",
+        password: ""
     };
-
-    onInputEmail(e) {
+    onInputEmail = (e) => {
         const email = e.target.value;
         this.setState(() => ({ email }));
     };
 
-    onInputPassword(e) {
+    onInputPassword = (e) => {
         const password = e.target.value;
         this.setState(() => ({ password }));
     };
 
-    onCreateAccount(e) {
+    onCreateAccount = (e) => {
         console.log("upper btn clicked");
     };
-    onLogin(e) {
+    onLogin = (e) => {
         console.log("lower btn clicked");
     };
 

@@ -17,7 +17,7 @@ const Transaction = ({transaction}) => (
                     </div>
                 ):(
                     <div>
-                        {/* CONVER AND FORMAT DESCRIPTION PROPERLY */}
+                        {/* CONVERT AND FORMAT DESCRIPTION PROPERLY */}
                         <p>{descriptionToText(transaction.description)}:</p>
                         <p className="transaction_user">{transaction.user}</p>
                     </div>
