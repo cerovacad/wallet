@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Wallet from "../components/Wallet";
-import Transactions from "../components/PendingTransactions"
 import Aux from "../containers/Aux";
 import UserForm from "../components/UserForm";
+import MainPage from '../containers/MainPage'
 
 const AppRouter = () => {
   return (
@@ -11,7 +11,7 @@ const AppRouter = () => {
       <div>
         <Switch>
           <Route path="/wallet" component={Wallet} />
-          <Route path="/transactions" component={Transactions} exact />
+          <Route path="/transactions" component={MainPage} exact />
           <Route path="/is-requesting" component={Aux} exact />
           <Route path='/signup' component={UserForm} />
           <Route path='/login' component={UserForm} />
