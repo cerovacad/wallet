@@ -4,6 +4,7 @@ import Wallet from "../components/Wallet";
 import Aux from "../containers/Aux";
 import UserForm from "../components/UserForm";
 import MainPage from '../containers/MainPage'
+import Requesting from '../components/Requesting'
 
 const AppRouter = () => {
   return (
@@ -11,8 +12,9 @@ const AppRouter = () => {
       <div>
         <Switch>
           <Route path="/wallet" component={Wallet} />
-          <Route path="/transactions" component={MainPage} exact />
-          <Route path="/is-requesting" component={Aux} exact />
+          <Route path="/transactions" component={MainPage} exact/>
+          <Route path="/is-requesting" component={Aux} exact/>
+          <Route path="/requesting" component={Requesting} exact/>
           <Route path='/signup' component={UserForm} />
           <Route path='/login' component={UserForm} />
         </Switch>

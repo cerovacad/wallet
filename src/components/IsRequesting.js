@@ -1,23 +1,10 @@
 import React from 'react';
-import { Card, Icon, Button, Tag } from '@blueprintjs/core'
-import { typeToText } from '../utils/functions'
+import { Card, Button, Tag } from '@blueprintjs/core'
+import AlterContentHeader from './AlterContentHeader';
 
 const IsRequesting = ({transaction}) => (
    <div className="isRequesting">
-       <Card className="isRequesting_header">
-            <h4>{typeToText(transaction.type)}</h4>
-            <div className="isRequesting_balance">
-                <span className={transaction.type}>
-                    {transaction.balance} Btc. 
-                    <Icon 
-                        className="transaction_balance_icon"
-                        // DEPENDING ON TYPE ASIGN PROPER ICON
-                        icon={ transaction.type === 'incoming' ? 'arrow-left' : 'arrow-right'}
-                        iconSize='11'
-                    />
-                </span>
-            </div>
-        </Card>
+        <AlterContentHeader transaction={transaction} />
         <Card className='isRequesting_details'>
             <h4>{transaction.title}</h4>
             <div className='isRequesting_user'>
