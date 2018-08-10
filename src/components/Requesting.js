@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AlterContentHeader from './AlterContentHeader';
+import TransactionStatus from './TransactionStatus'
 
 const transaction = {
     type: 'incoming',
@@ -18,6 +19,7 @@ class Requesting extends Component {
         return (
            <div className='requesting'>
                 <AlterContentHeader transaction={transaction}/>
+                <TransactionStatus />
            </div> 
         );
     }
