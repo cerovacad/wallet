@@ -1,0 +1,10 @@
+.wallet-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $m-size;
+}
+
+#wallet-buttons-cancel {
+    background: none !important;
+    color: $dark-red !important;
+}

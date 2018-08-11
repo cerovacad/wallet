@@ -1,9 +1,9 @@
 export const statusToText = (status) => {
-    return (status[0].toUpperCase() + status.slice(1,)).replace(/-/g, " ")
+    return (status[0].toUpperCase() + status.slice(1, )).replace(/-/g, " ")
 }
 
 export const descriptionToText = (description) => {
-    switch(description){
+    switch (description) {
         case 'sending':
             return 'You are sending funds to'
         case 'requesting':
@@ -18,9 +18,17 @@ export const descriptionToText = (description) => {
 }
 
 export const typeToText = (type) => {
-    if(type === 'outgoing'){
+    if (type === 'outgoing') {
         return "Outgoing transaction"
-    }else{
+    } else {
         return "Incoming transaction"
     }
 }
+
+export const setWalletButtonDescription = (topUp, transfer) => {
+    if (topUp) {
+        return "Top-up"
+    } else if (transfer) {
+        return "Transfer"
+    };
+};
