@@ -1,0 +1,69 @@
+.send-funds {
+    font-weight: 500;
+    width: 360px;
+}
+
+.send-funds__container {
+    background: white;
+    box-sizing: border-box;
+    padding: 3rem;
+    width: 360px;
+}
+
+.send-funds__container__descriptionArea {
+    min-height: 8rem;
+}
+
+.send-funds__container__labelUpload {
+    background: $off-grey;
+    border-radius: .3rem;
+    margin-bottom: $m-size;
+    margin-top: $xs-size;
+    padding: .5rem;
+    text-align: center;
+    width: 30%;
+}
+
+.send-funds__container__price {
+    border-top: 1px solid $off-grey;
+    padding-top: $s-size;
+}
+
+.send-funds__container__deadline {
+    padding: $xs-size 0;
+    border-bottom: 1px solid $off-grey;
+}
+
+.send-funds__container__deadline__input {
+    .bp3-input {
+        width: 300px;
+    }
+}
+
+.send-funds__container__sendTo {
+    padding: 1rem 0;
+}
+
+.send-funds__container__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $m-size;
+    button {
+        width: 38%;
+    }
+}
+
+#send-funds__container__buttons--cancel {
+    background: none;
+    color: $dark-red;
+}
+
+#send-funds__container__buttons--send {
+    background: $light-blue;
+    color: darken($light-blue, 50%);
+}
+
+#send-funds__container__buttons--send:disabled {
+    background: $light-grey;
+    color: darken($light-grey, 30%);
+}
