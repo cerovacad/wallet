@@ -1,0 +1,31 @@
+.transaction-buttons {
+    border-top: 1px solid $off-grey;
+    display: flex;
+    justify-content: space-between;
+    margin-top: $m-size;
+    padding: 3rem 0 $xl-size 0;
+}
+
+.transaction-buttons--cancel {
+    background: none !important;
+    color: $dark-red !important;
+}
+
+.transaction-buttons--none {
+    display: none !important;
+}
+
+.transaction-buttons--accept {}
+
+.transaction-buttons--addFunds {}
+
+.transaction-buttons--decline {
+    margin-top: $xs-size;
+}
+
+.transaction-buttons--bellow {
+    @extend .transaction-buttons;
+    display: block;
+}
+
+.transaction-buttons--right {}
