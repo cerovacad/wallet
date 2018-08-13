@@ -7,21 +7,24 @@
 
 .wallet__card {
     background-color: white;
-    padding: $m-size 0 9rem 0;
+    margin-top: .1rem;
+    padding: $xl-size 0 8rem 0;
     text-align: center;
 }
 
 .wallet__card__content {
     background-color: white;
     margin: 0 auto $l-size auto;
+    padding-bottom: $xl-size;
     width: 55%;
 }
 
 .wallet__card__content__balance {
     color: $dark-navy;
-    font-size: 4rem;
+    font-size: 5.2rem;
     font-weight: 600;
     margin: 0;
+    margin-top: $xs-size;
     text-align: center;
     word-break: break-all;
 }
@@ -29,6 +32,5 @@
 .wallet__card__content__currency {
     color: $dark-navy;
     font-weight: 1000;
-    margin-bottom: $l-size;
+    margin-bottom: $xl-size;
 }
-

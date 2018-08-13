@@ -58,3 +58,10 @@ export const descriptionToTextAndStyle = (description) => {
             return "";
     }
 };
+export const setWalletButtonDescription = (topUp, transfer) => {
+    if (topUp) {
+        return "Top-up"
+    } else if (transfer) {
+        return "Transfer"
+    };
+};
