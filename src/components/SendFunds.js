@@ -84,7 +84,7 @@ class SendFunds extends Component {
             return false;
         } else {
             return true;
-        };
+        }
     };
 
     render() {
