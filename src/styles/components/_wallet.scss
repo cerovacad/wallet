@@ -2,7 +2,7 @@
     font-family: "Roboto";
     box-sizing: border-box;
     margin: 0;
-    width: 360px;
+    @extend .container; 
 }
 
 .wallet__card {

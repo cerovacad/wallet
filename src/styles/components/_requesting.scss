@@ -1,5 +1,5 @@
 .requesting{
-    width: 360px;
+    @extend .container; 
 }
 .requesting_list{
     color: $xlight-grey;

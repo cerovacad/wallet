@@ -1,5 +1,5 @@
 .pendingTransactions{
-    width: 360px;
+    @extend .container; 
 }
 // .pendingTransactions_header{
 //     h4{

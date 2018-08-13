@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Icon } from '@blueprintjs/core';
+import { Icon } from '@blueprintjs/core';
 
 class TransactionStatus extends Component {
     state = { 
@@ -7,7 +7,7 @@ class TransactionStatus extends Component {
      }
     render() {
         return (
-                <Card>
+                <div>
                     <h4>Website changes</h4>
                     <ul className='requesting_list'>
 
@@ -75,7 +75,7 @@ class TransactionStatus extends Component {
                         </li>
 
                     </ul>
-                </Card>
+                </div>
         );
     }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Wallet from "../components/Wallet";
-// import Aux from "../containers/Aux";
 import UserForm from "../components/UserForm";
 import Requesting from '../components/Requesting'
 import MainPage from '../containers/MainPage';
