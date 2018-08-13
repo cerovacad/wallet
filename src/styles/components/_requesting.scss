@@ -1,3 +1,50 @@
 .requesting{
     width: 360px;
 }
+.requesting_list{
+    color: $xlight-grey;
+    list-style-type: none;
+    margin-left: -4rem;
+    li{
+        margin-bottom: 1.5rem;
+    }
+}
+.requesting_list_item{
+    position: relative;
+}
+.requesting_list_icon{
+    margin-right: 1rem;
+    margin-top: 0.3rem;
+    // border: 0.1rem solid white;
+}
+.requesting_list_item_user{
+    margin-left: 2.2rem;
+}
+.requesting_list_progress{
+    height: 2.3rem;
+    position: absolute;
+    top: 1.4rem;
+    left: 0.5rem;
+    border-left: 2px dotted $xlight-grey;
+}
+.first{
+    height: 4.1rem;
+}
+
+// STATUS PROGRESS COLORS
+//NZM KOJE SU BOJE PREDVIDJENE
+.info{
+    color: initial;
+}
+.waiting{
+    color: $dark-red;
+}
+.received{
+    color: $borange;
+}
+.inProgress{
+    color: $dark-navy;
+}
+.delivered{
+    color: $ggreen;
+}
