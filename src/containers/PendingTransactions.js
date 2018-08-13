@@ -2,12 +2,12 @@ import React from 'react';
 import Transaction from '../components/Transaction'
 import uid from 'uid'
 import { Card, Button } from '@blueprintjs/core'
-import AlterContentHeader from '../components/AlterContentHeader';
+import ContentHeader from '../components/ContentHeader';
 
 
 const PendingTransactions = ({ transactions, getTransaction }) => (
     <div className="pendingTransactions">
-        <AlterContentHeader title='Pending transactions' />
+        <ContentHeader title='Pending transactions' />
         {transactions.map((transaction) => {
             return (
                 <div key={uid()} onClick={() => getTransaction(transaction)}>

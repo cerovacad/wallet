@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PendingTransactions from './PendingTransactions';
 import TransactionComponent from '../components/TransactionComponent';
+import Wallet from '../components/Wallet';
 
 
 class MainPage extends Component {
@@ -62,6 +63,7 @@ class MainPage extends Component {
     render() {
         return (
             <div className="mainPage__container">
+                <Wallet/>
                 <PendingTransactions transactions={this.state.arr} getTransaction={this.getTransaction} />
                 {this.state.transaction && <TransactionComponent transaction={this.state.transaction} />}
             </div>

@@ -1,13 +1,14 @@
 .send-funds {
     font-weight: 500;
-    width: 360px;
+    @extend .container; 
 }
 
 .send-funds__container {
+    margin-top: .1rem;
     background: white;
     box-sizing: border-box;
     padding: 3rem;
-    width: 360px;
+    @extend .container; 
 }
 
 .send-funds__container__descriptionArea {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, Button, Tag } from '@blueprintjs/core'
-import AlterContentHeader from './AlterContentHeader';
+import ContentHeader from './ContentHeader';
 
 const IsRequesting = ({transaction}) => (
    <div className="isRequesting">
-        <AlterContentHeader transaction={transaction} />
+        <ContentHeader transaction={transaction} />
         <Card className='isRequesting_details'>
             <h4>{transaction.title}</h4>
             <div className='isRequesting_user'>

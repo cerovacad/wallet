@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AlterContentHeader from './AlterContentHeader';
+import ContentHeader from './ContentHeader';
 import TransactionStatus from './TransactionStatus'
 
 const transaction = {
@@ -18,7 +18,7 @@ class Requesting extends Component {
     render() {
         return (
            <div className='requesting'>
-                <AlterContentHeader transaction={transaction}/>
+                <ContentHeader transaction={transaction}/>
                 <TransactionStatus />
            </div> 
         );

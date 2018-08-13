@@ -1,5 +1,5 @@
 .isRequesting{
-    width: 360px;
+    @extend .container; 
     font-weight: 100;
     p, h4{
         margin: 0;

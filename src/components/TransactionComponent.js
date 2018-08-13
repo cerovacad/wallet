@@ -1,9 +1,10 @@
 import React from "react";
 import { Card } from '@blueprintjs/core'
-import AlterContentHeader from './AlterContentHeader';
+import ContentHeader from './ContentHeader';
 import TransactionDescription from "./TransactionDescription";
 import TransactionButtons from "./TransactionButtons";
 import UploadFileList from "./UploadFileList";
+import TransactionStatus from './TransactionStatus';
 
 const fileList=[{
     fileName: "Example.jpg",
@@ -13,9 +14,10 @@ const fileList=[{
 const TransactionComponent = ({ transaction }) =>
     (
         <div className="transaction__container">
-            <AlterContentHeader transaction={transaction} />
+            <ContentHeader transaction={transaction} />
             <Card>
                 {/* <div>TRANSACTION STATUS COMPONENT GOES HERE</div> */}
+                <TransactionStatus />
                 <hr className="transaction__container__hr" />
                 <TransactionDescription
                     longDescription={transaction.longDescription}
