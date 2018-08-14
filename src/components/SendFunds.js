@@ -8,6 +8,7 @@ import moment from "moment";
 import UploadedFile from "../entities/UploadedFile";
 import {connect} from 'react-redux';
 import {addTransaction} from '../actions/transactionActions';
+import { Link } from 'react-router-dom';
 
 class SendFunds extends Component {
     state = {
@@ -99,6 +100,7 @@ class SendFunds extends Component {
         return (
             <div className="send-funds">
                 <ContentHeader title="Send funds" />
+                <Link to='/transactions'>Mika</Link>
                 <div className="send-funds__container">
                     <FormGroup
                         label="Title"
