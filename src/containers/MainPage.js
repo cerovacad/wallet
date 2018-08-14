@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PendingTransactions from './PendingTransactions';
 import TransactionComponent from '../components/TransactionComponent';
 import Wallet from '../components/Wallet';
+import SendFunds from '../components/SendFunds';
 
 
 class MainPage extends Component {
@@ -51,20 +52,52 @@ class MainPage extends Component {
             longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
 
         }],
-        transaction: undefined
+        transaction: null,
+        sendForm: false,
+        requestForm: false
     }
 
     // UNTIL COMPONENT IS CONNECTED TO REDUX STORE
     getTransaction = (transaction) => {
-        this.setState(() => ({ transaction }));
+        this.setState(() => ({ transaction, sendForm: false, requestForm: false }));
+    };
+    displaySendForm = () => {
+        this.setState(() => ({ sendForm: true, transaction: null, requestForm: false }))
+    };
+    closeSendForm = () => {
+        this.setState(() => ({ sendForm: false, requestForm: false }));
+    };
+    displayRequestForm = () => {
+        this.setState(() => ({
+            sendForm: false,
+            transaction: null,
+            requestForm: true
+        }))
     };
 
     render() {
         return (
             <div className="mainPage__container">
-                <Wallet/>
-                <PendingTransactions transactions={this.state.arr} getTransaction={this.getTransaction} />
-                {this.state.transaction && <TransactionComponent transaction={this.state.transaction} />}
+                <Wallet />
+                <PendingTransactions
+                    transactions={this.state.arr}
+                    getTransaction={this.getTransaction}
+                    displaySendForm={this.displaySendForm}
+                    displayRequestForm={this.displayRequestForm}
+                />
+                {this.state.transaction
+                    && <TransactionComponent
+                        transaction={this.state.transaction} />}
+                {this.state.sendForm
+                    && <SendFunds
+                        closeSendForm={this.closeSendForm}
+                        text="Send Funds"
+                    />}
+                {this.state.requestForm
+                    && <SendFunds
+                        closeSendForm={this.closeSendForm}
+                        text="Request Funds"
+                    />}
             </div>
         );
     }

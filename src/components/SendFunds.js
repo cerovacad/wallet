@@ -6,8 +6,8 @@ import ContentHeader from "../components/ContentHeader";
 import UploadFileList from "../components/UploadFileList";
 import moment from "moment";
 import UploadedFile from "../entities/UploadedFile";
-import {connect} from 'react-redux';
-import {addTransaction} from '../actions/transactionActions';
+import { connect } from 'react-redux';
+import { addTransaction } from '../actions/transactionActions';
 
 class SendFunds extends Component {
     state = {
@@ -43,15 +43,13 @@ class SendFunds extends Component {
         this.setState(() => ({ sendTo }));
     };
     onCancelClick = () => {
-        console.log("cancel btn clicked");
-        this.clearInputs();
+        this.props.closeSendForm();
     };
     onFilesChange = (e) => {
         const fileArray = Array.from(e.target.files);
         const fileList = fileArray.map((fileItem) => {
             return new UploadedFile(fileItem);
         });
-        // SAVE LIST IN REDUX STORE
         this.setState(() => ({ fileList }));
     };
     clearInputs = () => {
@@ -66,21 +64,32 @@ class SendFunds extends Component {
     };
 
     onSendClick = () => {
-        const {title, price, description, fileList, deadline, sendTo} = this.state;
+        const { title, price, description, fileList, deadline, sendTo } = this.state;
         if (title
             && price
             && sendTo
             && deadline) {
-            console.log("Send funds clicked");
-            this.props.addTransaction({
-                title,
-                description,
-                user: sendTo,
-                balance: price
-            })
 
-            // CLEAR FORM
-            this.clearInputs();
+            if (this.props.text.includes("Send")) {
+                this.props.addTransaction({
+                    title,
+                    description,
+                    user: sendTo,
+                    balance: price
+                })
+                this.clearInputs();
+            }
+            else if (this.props.text.includes("Request")) {
+                this.props.addTransaction({
+                    title,
+                    description,
+                    longDescription: description,
+                    description: "requesting",
+                    user: sendTo,
+                    balance: price
+                })
+                this.clearInputs();
+            }
         };
     };
 
@@ -98,7 +107,7 @@ class SendFunds extends Component {
     render() {
         return (
             <div className="send-funds">
-                <ContentHeader title="Send funds" />
+                <ContentHeader title={this.props.text} />
                 <div className="send-funds__container">
                     <FormGroup
                         label="Title"
@@ -192,7 +201,7 @@ class SendFunds extends Component {
                         />
                         <Button
                             active
-                            text="Send Funds"
+                            text={this.props.text}
                             minimal
                             id="send-funds__container__buttons--send"
                             onClick={this.onSendClick}
