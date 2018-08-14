@@ -14,7 +14,7 @@ const defState = [];
 export default (state = defState, action) => {
     switch (action.type) {
         case ADD_TRANSACTION:
-            return state;
+            return [...state, action.transaction];
         case REMOVE_TRANSACTION:
             return state;
         default:

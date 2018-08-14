@@ -6,6 +6,8 @@ import ContentHeader from "../components/ContentHeader";
 import UploadFileList from "../components/UploadFileList";
 import moment from "moment";
 import UploadedFile from "../entities/UploadedFile";
+import {connect} from 'react-redux';
+import {addTransaction} from '../actions/transactionActions';
 
 class SendFunds extends Component {
     state = {
@@ -64,12 +66,18 @@ class SendFunds extends Component {
     };
 
     onSendClick = () => {
-        if (this.state.title
-            && this.state.price
-            && this.state.sendTo
-            && this.state.deadline) {
+        const {title, price, description, fileList, deadline, sendTo} = this.state;
+        if (title
+            && price
+            && sendTo
+            && deadline) {
             console.log("Send funds clicked");
-            // DISPATCH ACTION TO SEND FUNDS
+            this.props.addTransaction({
+                title,
+                description,
+                user: sendTo,
+                balance: price
+            })
 
             // CLEAR FORM
             this.clearInputs();
@@ -196,5 +204,9 @@ class SendFunds extends Component {
         );
     }
 };
+const mapDispatchToProps = (dispatch) => ({
+    addTransaction: (transaction) => dispatch(addTransaction(transaction))
+});
 
-export default SendFunds;
+
+export default connect(null, mapDispatchToProps)(SendFunds);

@@ -7,9 +7,12 @@ import "./styles/styles.scss";
 import AppRouter from "./routers/AppRouter";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
+import { addTransaction } from './actions/transactionActions';
 
 const store = configureStore();
 
+store.dispatch(addTransaction({type: "bla", description: "in progress"}));
+console.log(store.getState());
 const App = () => {
     return (
         <Provider store={store}>
