@@ -8,7 +8,6 @@ import moment from "moment";
 import UploadedFile from "../entities/UploadedFile";
 import {connect} from 'react-redux';
 import {addTransaction} from '../actions/transactionActions';
-import { Link } from 'react-router-dom';
 
 class TransactionForm extends Component {
     state = {
@@ -118,7 +117,6 @@ class TransactionForm extends Component {
         return (
             <div className="form">
                 <ContentHeader title={this.props.text} />
-                <Link to='/transactions'>Mika</Link>
                 <div className="form__container">
                     <FormGroup
                         label="Title"
