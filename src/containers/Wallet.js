@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "@blueprintjs/core";
-import ContentHeader from "./ContentHeader";
-import WalletCard from "./WalletCard";
+import ContentHeader from "../components/ContentHeader";
+import WalletCard from "../components/WalletCard";
 import { setWalletButtonDescription } from "../utils/functions";
 
 

@@ -2,10 +2,6 @@ import React from "react";
 import { Tag } from "@blueprintjs/core";
 
 const UploadFileList = (props) => {
-    const onFileDelete = (e) => {
-        console.log("item deleted");
-        // DISPATCH ACTION TO REMOVE ITEM FROM STORE
-    };
     return (
         <div>
             <p>Files</p>
@@ -15,8 +11,7 @@ const UploadFileList = (props) => {
                         <Tag
                             key={file.lastModified}
                             large
-                            // ENABLE REMOVE OPTION ONLY IF COMPONENT IS INSIDE OF SEND_FORM
-                            onRemove={props.form && onFileDelete}
+                            onRemove={props.form && (() => { props.onRemoveFile(file.fileName) })}
                             className="upload-file-tag"
                         >
                             <span>{file.fileName}</span>

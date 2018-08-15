@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PendingTransactions from './PendingTransactions';
+import PendingTransactions from '../containers/PendingTransactions';
 import TransactionComponent from '../components/TransactionComponent';
-import Wallet from '../components/Wallet';
+import Wallet from '../containers/Wallet';
 import TransactionForm from '../components/TransactionForm';
 
 

@@ -52,6 +52,13 @@ class TransactionForm extends Component {
         });
         this.setState(() => ({ fileList }));
     };
+    onRemoveFile = (name) => {
+        const list = this.state.fileList;
+        const newList = list.filter((file) => {
+            return file.fileName !== name;
+        });
+        this.setState(() => ({ fileList: newList }));
+    };
     clearInputs = () => {
         this.setState(() => ({
             title: "",
@@ -64,7 +71,7 @@ class TransactionForm extends Component {
     };
 
     onSubmitForm = () => {
-        const { title, price, description, fileList, deadline, user } = this.state;
+        const { title, price, description, deadline, user } = this.state;
         if (title
             && price
             && user
@@ -74,7 +81,7 @@ class TransactionForm extends Component {
                 this.props.addTransaction({
                     type: "outgoing",
                     title,
-                    description:"sending",
+                    description: "sending",
                     longDescription: description,
                     user,
                     balance: price
@@ -135,7 +142,11 @@ class TransactionForm extends Component {
                             onChange={this.onDescriptionChange}
                         />
                     </FormGroup>
-                    <UploadFileList fileList={this.state.fileList} form={true} />
+                    <UploadFileList
+                        fileList={this.state.fileList}
+                        form={true}
+                        onRemoveFile={this.onRemoveFile}
+                    />
                     <FormGroup
                         label="Add file"
                         labelFor="form-input-file"
