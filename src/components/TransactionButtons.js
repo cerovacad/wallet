@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "@blueprintjs/core"
 import { descriptionToTextAndStyle } from "../utils/functions";
+import { removeTransaction } from '../actions/transactionActions';
+import { connect } from 'react-redux';
 
-const TransactionButtons = ({ description }) => {
+const TransactionButtons = ({ description, removeTransaction, id, removeDetails }) => {
     const onAddComment = (e) => {
         console.log("Add comment clicked!");
         // DISPATCH ACTION FROM PROPS HERE
@@ -13,7 +15,9 @@ const TransactionButtons = ({ description }) => {
     };
     const onDeclineFunds = (e) => {
         console.log("Funds declined!");
-        // DISPATCH ACTION FROM PROPS HERE
+        console.log(id);
+        removeTransaction({ id });
+        removeDetails();
     };
     const onButtonClick = (e) => {
         console.log(`${descriptionToTextAndStyle(description).text} clicked!`);
@@ -69,4 +73,8 @@ const TransactionButtons = ({ description }) => {
     );
 };
 
-export default TransactionButtons;
+const mapDispatchToProps = (dispatch) => ({
+    removeTransaction: (data) => dispatch(removeTransaction(data))
+});
+
+export default connect(null, mapDispatchToProps)(TransactionButtons);

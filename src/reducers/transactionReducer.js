@@ -16,7 +16,7 @@ export default (state = defState, action) => {
         case ADD_TRANSACTION:
             return [...state, action.transaction];
         case REMOVE_TRANSACTION:
-            return state;
+            return state.filter(({ id }) => id !== action.id);
         default:
             return state;
     }

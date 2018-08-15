@@ -29,9 +29,7 @@ export const addTransaction = ({
 
 });
 
-export const removeTransaction = ({
-    id
-} = {}) => ({
+export const removeTransaction = ({ id } = {}) => ({
     type: REMOVE_TRANSACTION,
     id
 });

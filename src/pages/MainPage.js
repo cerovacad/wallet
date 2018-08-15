@@ -74,6 +74,9 @@ class MainPage extends Component {
             requestForm: true
         }))
     };
+    removeTransaction = () => {
+        this.setState(() => ({ transaction: undefined, sendForm: false, requestForm: false }));
+    };
 
     render() {
         return (
@@ -87,7 +90,9 @@ class MainPage extends Component {
                 />
                 {this.state.transaction
                     && <TransactionComponent
-                        transaction={this.state.transaction} />}
+                        transaction={this.state.transaction}
+                        removeTransaction={this.removeTransaction}
+                    />}
                 {this.state.sendForm
                     && <TransactionForm
                         closeForm={this.closeForm}
