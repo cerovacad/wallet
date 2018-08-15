@@ -6,12 +6,12 @@ import TransactionButtons from "./TransactionButtons";
 import UploadFileList from "./UploadFileList";
 import TransactionStatus from './TransactionStatus';
 
-const fileList=[{
+const fileList = [{
     fileName: "Example.jpg",
     lastModified: 1533722248468
 }];
 
-const TransactionComponent = ({ transaction }) =>
+const TransactionComponent = ({ transaction, removeTransaction }) =>
     (
         <div className="transaction__container">
             <ContentHeader transaction={transaction} />
@@ -22,9 +22,11 @@ const TransactionComponent = ({ transaction }) =>
                 <TransactionDescription
                     longDescription={transaction.longDescription}
                 />
-                <UploadFileList fileList={fileList}/>
+                <UploadFileList fileList={fileList} />
                 <TransactionButtons
                     description={transaction.description}
+                    id={transaction.id}
+                    removeDetails={removeTransaction}
                 />
             </Card>
         </div>
