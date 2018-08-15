@@ -19,10 +19,7 @@ const TransactionButtons = ({ description, removeTransaction, id, removeDetails 
         removeTransaction({ id });
         removeDetails();
     };
-    const onButtonClick = (e) => {
-        console.log(`${descriptionToTextAndStyle(description).text} clicked!`);
-        // DISPATCH ACTION FROM PROPS HERE
-    };
+
     return (
         <div>
             <div className={descriptionToTextAndStyle(description).containerClassName}>
@@ -64,7 +61,7 @@ const TransactionButtons = ({ description, removeTransaction, id, removeDetails 
                                 active
                                 text={descriptionToTextAndStyle(description).text}
                                 className={descriptionToTextAndStyle(description).className}
-                                onClick={onButtonClick}
+                                onClick={onDeclineFunds}
                             />
                         </div>
                 }
