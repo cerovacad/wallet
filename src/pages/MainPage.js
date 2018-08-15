@@ -3,6 +3,7 @@ import PendingTransactions from '../containers/PendingTransactions';
 import TransactionComponent from '../components/TransactionComponent';
 import Wallet from '../containers/Wallet';
 import TransactionForm from '../components/TransactionForm';
+import Nav from '../components/Nav';
 
 
 class MainPage extends Component {
@@ -80,31 +81,34 @@ class MainPage extends Component {
 
     render() {
         return (
-            <div className="mainPage__container">
-                <Wallet />
-                <PendingTransactions
-                    transactions={this.state.arr}
-                    getTransaction={this.getTransaction}
-                    displaySendForm={this.displaySendForm}
-                    displayRequestForm={this.displayRequestForm}
-                />
-                {this.state.transaction
-                    && <TransactionComponent
-                        transaction={this.state.transaction}
-                        removeTransaction={this.removeTransaction}
-                    />}
-                {this.state.sendForm
-                    && <TransactionForm
-                        closeForm={this.closeForm}
-                        text="Send Funds"
-                        labelText="Send to"
-                    />}
-                {this.state.requestForm
-                    && <TransactionForm
-                        closeForm={this.closeForm}
-                        text="Request Funds"
-                        labelText="Request from"
-                    />}
+            <div className="main_aligment">
+                <Nav/>
+                <div className="mainPage__container">
+                    <Wallet />
+                    <PendingTransactions
+                        transactions={this.state.arr}
+                        getTransaction={this.getTransaction}
+                        displaySendForm={this.displaySendForm}
+                        displayRequestForm={this.displayRequestForm}
+                    />
+                    {this.state.transaction
+                        && <TransactionComponent
+                            transaction={this.state.transaction}
+                            removeTransaction={this.removeTransaction}
+                        />}
+                    {this.state.sendForm
+                        && <TransactionForm
+                            closeForm={this.closeForm}
+                            text="Send Funds"
+                            labelText="Send to"
+                        />}
+                    {this.state.requestForm
+                        && <TransactionForm
+                            closeForm={this.closeForm}
+                            text="Request Funds"
+                            labelText="Request from"
+                        />}
+                </div>
             </div>
         );
     }

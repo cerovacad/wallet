@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { InputGroup, FormGroup, Button } from "@blueprintjs/core";
+import { Redirect } from 'react-router-dom';
 
 class UserForm extends Component {
     state = {
+        redirect: null,
         email: "",
         password: ""
     };
@@ -17,15 +19,22 @@ class UserForm extends Component {
     };
 
     onCreateAccount = (e) => {
-        console.log("upper btn clicked");
+        console.log(this.state);
     };
     onLogin = (e) => {
-        console.log("lower btn clicked");
+        console.log(this.state);
+        if(
+            this.state.email === 'qwe' &&
+            this.state.password === 'qwe'
+        ){
+            this.setState({ redirect: !this.state.redirect })
+        }
     };
 
     render() {
         return (
             <div className="user-form">
+                { this.state.redirect ? ( <Redirect to='/'/> ):( '' ) }
                 <FormGroup
                     label="Email"
                     labelFor="text-input"
@@ -58,7 +67,7 @@ class UserForm extends Component {
                             ? "Create account"
                             : "Login"
                         }
-                        onClick={this.onCreateAccount}
+                        onClick={this.onLogin}
                     />
                     <Button
                         fill
