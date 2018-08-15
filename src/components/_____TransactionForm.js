@@ -72,7 +72,6 @@ class TransactionForm extends Component {
 
     onSubmitForm = () => {
         const { title, price, description, deadline, user } = this.state;
-        // console.log(moment(deadline).format("MMM Do YY"))
         if (title
             && price
             && user
@@ -85,8 +84,7 @@ class TransactionForm extends Component {
                     description: "sending",
                     longDescription: description,
                     user,
-                    balance: price,
-                    deadline: moment(deadline).format("MMM Do YYYY")
+                    balance: price
                 })
                 this.clearInputs();
             }
@@ -97,8 +95,7 @@ class TransactionForm extends Component {
                     longDescription: description,
                     description: "requesting",
                     user,
-                    balance: price,
-                    deadline: moment(deadline).format("MMM Do YYYY")
+                    balance: price
                 })
                 this.clearInputs();
             }
@@ -185,7 +182,7 @@ class TransactionForm extends Component {
                             <DateInput
                                 closeOnSelection
                                 canClearSelection
-                                formatDate={date => moment(date).format("MMM Do YYYY")}
+                                formatDate={date => moment(date).format("Do MMMM YYYY")}
                                 parseDate={str => moment(str)}
                                 inputProps={{ className: "form__container__deadline__input", leftIcon: IconNames.CALENDAR }}
                                 id="form-input-deadline"

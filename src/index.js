@@ -18,8 +18,8 @@ store.dispatch(addTransaction({
     user: 'example@gmail.com',
     status: 'waiting-for-your-reply',
     balance: 0.008,
+    deadline: '17 08 1024',
     longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
-
 }));
 store.dispatch(addTransaction({
     type: 'incoming',
@@ -29,16 +29,6 @@ store.dispatch(addTransaction({
     status: 'in-progress',
     balance: 0.008,
     longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
-}));
-store.dispatch(addTransaction({
-    type: 'outgoing',
-    title: 'Photo retouching',
-    description: 'sending',
-    user: 'qewqewqwewq@wqail.com',
-    status: 'waiting-for-escrow',
-    balance: 0.06,
-    longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
-
 }));
 console.log(store.getState());
 const App = () => {
