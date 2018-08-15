@@ -30,7 +30,7 @@ store.dispatch(addTransaction({
     balance: 0.008,
     longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
 }));
-console.log(store.getState());
+
 const App = () => {
     return (
         <Provider store={store}>
