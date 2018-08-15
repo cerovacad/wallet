@@ -9,7 +9,7 @@ import UploadedFile from "../entities/UploadedFile";
 import { connect } from 'react-redux';
 import { addTransaction } from '../actions/transactionActions';
 
-class SendFunds extends Component {
+class TransactionForm extends Component {
     state = {
         title: "",
         description: "",
@@ -20,7 +20,7 @@ class SendFunds extends Component {
         }],
         price: "",
         deadline: null,
-        sendTo: "",
+        user: "",
     }
     onTitleChange = (e) => {
         const title = e.target.value;
@@ -38,12 +38,12 @@ class SendFunds extends Component {
         const deadline = selectedDate;
         this.setState(() => ({ deadline }));
     };
-    onSendToChange = (e) => {
-        const sendTo = e.target.value;
-        this.setState(() => ({ sendTo }));
+    onUserChange = (e) => {
+        const user = e.target.value;
+        this.setState(() => ({ user }));
     };
     onCancelClick = () => {
-        this.props.closeSendForm();
+        this.props.closeForm();
     };
     onFilesChange = (e) => {
         const fileArray = Array.from(e.target.files);
@@ -59,33 +59,35 @@ class SendFunds extends Component {
             fileList: [],
             price: "",
             deadline: null,
-            sendTo: ""
+            user: ""
         }));
     };
 
-    onSendClick = () => {
-        const { title, price, description, fileList, deadline, sendTo } = this.state;
+    onSubmitForm = () => {
+        const { title, price, description, fileList, deadline, user } = this.state;
         if (title
             && price
-            && sendTo
+            && user
             && deadline) {
 
             if (this.props.text.includes("Send")) {
                 this.props.addTransaction({
+                    type: "outgoing",
                     title,
-                    description,
-                    user: sendTo,
+                    description:"sending",
+                    longDescription: description,
+                    user,
                     balance: price
                 })
                 this.clearInputs();
             }
             else if (this.props.text.includes("Request")) {
                 this.props.addTransaction({
+                    type: "incoming",
                     title,
-                    description,
                     longDescription: description,
                     description: "requesting",
-                    user: sendTo,
+                    user,
                     balance: price
                 })
                 this.clearInputs();
@@ -97,7 +99,7 @@ class SendFunds extends Component {
         if (this.state.title
             && this.state.price
             && this.state.deadline
-            && this.state.sendTo) {
+            && this.state.user) {
             return false;
         } else {
             return true;
@@ -106,29 +108,29 @@ class SendFunds extends Component {
 
     render() {
         return (
-            <div className="send-funds">
+            <div className="form">
                 <ContentHeader title={this.props.text} />
-                <div className="send-funds__container">
+                <div className="form__container">
                     <FormGroup
                         label="Title"
-                        labelFor="send-funds-input-title"
+                        labelFor="form-input-title"
                     >
                         <InputGroup
                             type="text"
-                            id="send-funds-input-title"
+                            id="form-input-title"
                             value={this.state.title}
                             onChange={this.onTitleChange}
                         />
                     </FormGroup>
                     <FormGroup
                         label="Description"
-                        labelFor="send-funds-textarea-description"
+                        labelFor="form-textarea-description"
                     >
                         <TextArea
                             large
                             fill
-                            className="send-funds__container__descriptionArea"
-                            id="send-funds-textarea-description"
+                            className="form__container__descriptionArea"
+                            id="form-textarea-description"
                             value={this.state.description}
                             onChange={this.onDescriptionChange}
                         />
@@ -136,43 +138,43 @@ class SendFunds extends Component {
                     <UploadFileList fileList={this.state.fileList} form={true} />
                     <FormGroup
                         label="Add file"
-                        labelFor="send-funds-input-file"
-                        className="bp3-file-input send-funds__container__labelUpload"
+                        labelFor="form-input-file"
+                        className="bp3-file-input form__container__labelUpload"
                     >
                         <input
                             multiple
                             onChange={this.onFilesChange}
                             type="file"
-                            id="send-funds-input-file"
+                            id="form-input-file"
                         />
                     </FormGroup>
-                    <div className="send-funds__container__price">
+                    <div className="form__container__price">
                         <FormGroup
                             label="Price"
-                            labelFor="send-funds-input-price"
+                            labelFor="form-input-price"
                         >
                             <NumericInput
                                 allowNumericCharactersOnly
                                 buttonPosition="none"
                                 fill
-                                id="send-funds-input-price"
+                                id="form-input-price"
                                 value={this.state.price}
                                 onValueChange={this.onPriceChange}
                             />
                         </FormGroup>
                     </div>
-                    <div className="send-funds__container__deadline">
+                    <div className="form__container__deadline">
                         <FormGroup
                             label="Deadline"
-                            labelFor="send-funds-input-deadline"
+                            labelFor="form-input-deadline"
                         >
                             <DateInput
                                 closeOnSelection
                                 canClearSelection
                                 formatDate={date => moment(date).format("Do MMMM YYYY")}
                                 parseDate={str => moment(str)}
-                                inputProps={{ className: "send-funds__container__deadline__input", leftIcon: IconNames.CALENDAR }}
-                                id="send-funds-input-deadline"
+                                inputProps={{ className: "form__container__deadline__input", leftIcon: IconNames.CALENDAR }}
+                                id="form-input-deadline"
                                 onChange={this.onDateChange}
                                 value={this.state.deadline}
                                 minDate={moment()._d}
@@ -180,31 +182,31 @@ class SendFunds extends Component {
                         </FormGroup>
                     </div>
                     <FormGroup
-                        label={"Send to"}
-                        labelFor={"send-funds-input-send-to"}
-                        className="send-funds__container__sendTo"
+                        label={this.props.labelText}
+                        labelFor={this.props.labelText}
+                        className="form__container__sendTo"
                     >
                         <InputGroup
                             type="email"
-                            id="send-funds-input-send-to"
-                            value={this.state.sendTo}
-                            onChange={this.onSendToChange}
+                            id={this.props.labelText}
+                            value={this.state.user}
+                            onChange={this.onUserChange}
                         />
                     </FormGroup>
-                    <div className="send-funds__container__buttons">
+                    <div className="form__container__buttons">
                         <Button
                             active
                             text="Cancel"
                             minimal
-                            id="send-funds__container__buttons--cancel"
+                            id="form__container__buttons--cancel"
                             onClick={this.onCancelClick}
                         />
                         <Button
                             active
                             text={this.props.text}
                             minimal
-                            id="send-funds__container__buttons--send"
-                            onClick={this.onSendClick}
+                            id="form__container__buttons--send"
+                            onClick={this.onSubmitForm}
                             disabled={this.isButtonDisabled()}
                         />
                     </div>
@@ -218,4 +220,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default connect(null, mapDispatchToProps)(SendFunds);
+export default connect(null, mapDispatchToProps)(TransactionForm);

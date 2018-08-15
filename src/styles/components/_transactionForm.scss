@@ -1,9 +1,9 @@
-.send-funds {
+.form {
     font-weight: 500;
     @extend .container; 
 }
 
-.send-funds__container {
+.form__container {
     margin-top: .1rem;
     background: white;
     box-sizing: border-box;
@@ -11,11 +11,11 @@
     @extend .container; 
 }
 
-.send-funds__container__descriptionArea {
+.form__container__descriptionArea {
     min-height: 8rem;
 }
 
-.send-funds__container__labelUpload {
+.form__container__labelUpload {
     background: $off-grey;
     border-radius: .3rem;
     margin-bottom: $m-size;
@@ -25,27 +25,27 @@
     width: 30%;
 }
 
-.send-funds__container__price {
+.form__container__price {
     border-top: 1px solid $off-grey;
     padding-top: $s-size;
 }
 
-.send-funds__container__deadline {
+.form__container__deadline {
     padding: $xs-size 0;
     border-bottom: 1px solid $off-grey;
 }
 
-.send-funds__container__deadline__input {
+.form__container__deadline__input {
     .bp3-input {
         width: 300px;
     }
 }
 
-.send-funds__container__sendTo {
+.form__container__sendTo {
     padding: 1rem 0;
 }
 
-.send-funds__container__buttons {
+.form__container__buttons {
     display: flex;
     justify-content: space-between;
     padding-bottom: $m-size;
@@ -54,17 +54,17 @@
     }
 }
 
-#send-funds__container__buttons--cancel {
+#form__container__buttons--cancel {
     background: none;
     color: $dark-red;
 }
 
-#send-funds__container__buttons--send {
+#form__container__buttons--send {
     background: $light-blue;
     color: darken($light-blue, 50%);
 }
 
-#send-funds__container__buttons--send:disabled {
+#form__container__buttons--send:disabled {
     background: $light-grey;
     color: darken($light-grey, 30%);
 }

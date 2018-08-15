@@ -4,7 +4,7 @@ import Wallet from "../components/Wallet";
 import UserForm from "../components/UserForm";
 import Requesting from '../components/Requesting'
 import MainPage from '../containers/MainPage';
-import SendFunds from "../components/SendFunds";
+import TransactionForm from "../components/TransactionForm";
 
 
 const AppRouter = () => {
@@ -18,7 +18,7 @@ const AppRouter = () => {
           <Route path="/requesting" component={Requesting} exact/>
           <Route path='/signup' component={UserForm} />
           <Route path='/login' component={UserForm} />
-          <Route path="/sending-funds" component={SendFunds} />
+          <Route path="/sending-funds" component={TransactionForm} />
         </Switch>
       </div>
     </BrowserRouter>

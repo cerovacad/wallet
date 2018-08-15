@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PendingTransactions from './PendingTransactions';
 import TransactionComponent from '../components/TransactionComponent';
 import Wallet from '../components/Wallet';
-import SendFunds from '../components/SendFunds';
+import TransactionForm from '../components/TransactionForm';
 
 
 class MainPage extends Component {
@@ -64,7 +64,7 @@ class MainPage extends Component {
     displaySendForm = () => {
         this.setState(() => ({ sendForm: true, transaction: null, requestForm: false }))
     };
-    closeSendForm = () => {
+    closeForm = () => {
         this.setState(() => ({ sendForm: false, requestForm: false }));
     };
     displayRequestForm = () => {
@@ -89,14 +89,16 @@ class MainPage extends Component {
                     && <TransactionComponent
                         transaction={this.state.transaction} />}
                 {this.state.sendForm
-                    && <SendFunds
-                        closeSendForm={this.closeSendForm}
+                    && <TransactionForm
+                        closeForm={this.closeForm}
                         text="Send Funds"
+                        labelText="Send to"
                     />}
                 {this.state.requestForm
-                    && <SendFunds
-                        closeSendForm={this.closeSendForm}
+                    && <TransactionForm
+                        closeForm={this.closeForm}
                         text="Request Funds"
+                        labelText="Request from"
                     />}
             </div>
         );
