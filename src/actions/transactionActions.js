@@ -13,12 +13,12 @@ export const ADD_TRANSACTION = 'ADD_TRANSACTION',
 // longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
 
 export const addTransaction = ({
-    type = '',
-    title = '',
-    description = '',
-    user = '',
-    status = '',
-    balance = 0,
+    type = 'incoming',
+    title = 'Default',
+    description = 'sending',
+    user = 'user@mail.com',
+    status = 'waiting-for-escrow',
+    balance = 0.009,
     longDescription = '',
     deadline = "",
     fileList = []

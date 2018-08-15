@@ -11,7 +11,35 @@ import { addTransaction } from './actions/transactionActions';
 
 const store = configureStore();
 
-store.dispatch(addTransaction({type: "bla", description: "in progress"}));
+store.dispatch(addTransaction({
+    type: 'incoming',
+    title: 'Website changes',
+    description: 'is-sending',
+    user: 'example@gmail.com',
+    status: 'waiting-for-your-reply',
+    balance: 0.008,
+    longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
+
+}));
+store.dispatch(addTransaction({
+    type: 'incoming',
+    title: 'Website changes',
+    description: 'requesting',
+    user: 'example@gmail.com',
+    status: 'in-progress',
+    balance: 0.008,
+    longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
+}));
+store.dispatch(addTransaction({
+    type: 'outgoing',
+    title: 'Photo retouching',
+    description: 'sending',
+    user: 'qewqewqwewq@wqail.com',
+    status: 'waiting-for-escrow',
+    balance: 0.06,
+    longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
+
+}));
 console.log(store.getState());
 const App = () => {
     return (
