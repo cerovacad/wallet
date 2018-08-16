@@ -5,10 +5,12 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-import AppRouter from "./routers/AppRouter";
+import firebase from 'firebase/app';
+import AppRouter, { history } from "./routers/AppRouter";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import { addTransaction } from './actions/transactionActions';
+import { loginAsync, logout } from './actions/authActions';
 
 const store = configureStore();
 
@@ -42,4 +44,31 @@ const App = () => {
     )
 };
 
+// let hasRendered = false;
+// const renderApp = () => {
+//     if (!hasRendered) {
+//         ReactDOM.render(<App />, document.getElementById('root'));
+//         hasRendered = true;
+//     }
+// };
+
 ReactDOM.render(<App />, document.getElementById('root'));
+
+// firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+        
+//         renderApp();
+//         if (history.location.pathname === '/') {
+//             history.push('/');
+//         }
+        
+//         // store.dispatch(loginAsync(user.getIdToken()))
+//         //     .then(() => {
+               
+//         //     });
+//     } else {
+//         // store.dispatch(logout());
+//         renderApp();
+//         history.push('/');
+//     }
+// });

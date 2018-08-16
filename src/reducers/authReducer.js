@@ -1,4 +1,16 @@
-const defState = []
+import { LOGIN, LOGOUT } from "../actions/authActions";
+
+const defState = {};
+
 export default (state = defState, action) => {
-    return state;
-}
+    switch (action.type) {
+        case LOGIN:
+            return {
+                token: action.token
+            };
+        case LOGOUT:
+            return {};
+        default:
+            return state;
+    }
+};

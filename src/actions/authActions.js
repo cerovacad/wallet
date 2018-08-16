@@ -1,21 +1,18 @@
 export const LOGIN = "LOGIN"
 export const SIGNUP = "SIGNUP"
+export const LOGOUT = "LOGOUT"
 
-const login = (email, pass) => {
-    return {
-        type: LOGIN,
-        email,
-        pass
-    }
-}
+const login = token => ({ type: LOGIN, token })
 
-export const loginAsync = (email, pass) => {
-    return (dispatch) => dispatch(login(email, pass))
-}
+export const loginAsync = token => dispatch => dispatch(login(token))
 
 export const signup = (email, pass) => {
 
 }
+
+export const logout = () => ({
+    type: LOGOUT
+});
 
 // function makeASandwichWithSecretSauce(forPerson) {
 

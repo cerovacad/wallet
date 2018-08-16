@@ -12,29 +12,29 @@ export const init = () => {
         projectId: "blog-praksa",
         storageBucket: "blog-praksa.appspot.com",
         messagingSenderId: "213031770168"
-      };
-  firebase.initializeApp(config)
+    };
+    firebase.initializeApp(config)
 }
 
-export const signupUser = (e,p) => {
+export const signupUser = (e, p) => {
     firebase.auth().createUserWithEmailAndPassword(e, p)
-    .then((res) => {
-        console.log(res)
-    }).catch((e) => { 
-        console.log(e.code)
-        console.log(e.message)
-    })
+        .then((res) => {
+            console.log(res)
+        }).catch((e) => {
+            console.log(e.code)
+            console.log(e.message)
+        })
 }
 
-export const loginUser = (e,p) => {
-    firebase.auth().signInWithEmailAndPassword(e, p)
-    .then((res) => { 
-        firebase.auth().currentUser.getIdToken()
-        .then((token) => {
-            console.log(token)
-        })
-     }).catch((e) => {
-      console.log('code ' + e.code);
-      console.log('msg ' + e.message);
-    });
+export const loginUser = (e, p) => {
+    return firebase.auth().signInWithEmailAndPassword(e, p)
+        .then(() => {
+            return firebase.auth().currentUser.getIdToken()
+                .then((token) => {
+                    return token
+                })
+        }).catch((e) => {
+            console.log('code ' + e.code);
+            console.log('msg ' + e.message);
+        });
 }
