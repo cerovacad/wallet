@@ -1,3 +1,4 @@
+import { init as firebaseInit, loginUser, signupUser } from './firebase';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "@blueprintjs/core/lib/css/blueprint.css";
@@ -30,6 +31,17 @@ store.dispatch(addTransaction({
     balance: 0.008,
     longDescription: 'Simply dummy text of the printing anddummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make'
 }));
+
+firebaseInit()
+
+const e = 'nbnvvbv@mikad.com'
+const p = 'qwe1231321'
+
+signupUser(e,p)
+loginUser(e,p)
+
+
+
 
 const App = () => {
     return (
