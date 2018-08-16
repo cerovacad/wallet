@@ -12,9 +12,9 @@ const AppRouter = () => {
     <BrowserRouter>
       <div>
         <Switch>
-          <UserRoute path="/" component={MainPage} />
-          <GuestRoute path='/signup' component={SignUp} />
-          <GuestRoute path='/login' component={Login} />
+        <GuestRoute path='/signup' component={SignUp} />
+        <GuestRoute path='/login' component={Login} />
+        <UserRoute path="/" component={MainPage} />
         </Switch>
       </div>
     </BrowserRouter>

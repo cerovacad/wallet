@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserForm from '../components/UserForm';
 
-class Login extends Component {
+class SignUp extends Component {
     state = {  }
     render() {
         return (
@@ -12,4 +12,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default SignUp;
