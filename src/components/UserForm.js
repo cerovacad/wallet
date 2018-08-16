@@ -23,18 +23,20 @@ class UserForm extends Component {
     };
     onLogin = (e) => {
         console.log(this.state);
-        if(
+        if (
             this.state.email === 'qwe' &&
             this.state.password === 'qwe'
-        ){
-            this.setState({ redirect: !this.state.redirect })
+        ) {
+            this.setState((prevState) => {
+                return { ...prevState, redirect: !prevState.redirect }
+            })
         }
     };
 
     render() {
         return (
             <div className="user-form">
-                { this.state.redirect ? ( <Redirect to='/'/> ):( '' ) }
+                {this.state.redirect ? (<Redirect to='/' />) : ('')}
                 <FormGroup
                     label="Email"
                     labelFor="text-input"
