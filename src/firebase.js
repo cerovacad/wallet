@@ -1,5 +1,9 @@
-import * as firebase from 'firebase'
-let database
+import firebase from 'firebase/app';
+import 'firebase/app';
+// import 'firebase/firestore';
+import 'firebase/auth';
+
+
 export const init = () => {
     var config = {
         apiKey: "AIzaSyC1xhf0MA1eGGdhg-ovV1o_1GywmIrybew",
@@ -10,7 +14,6 @@ export const init = () => {
         messagingSenderId: "213031770168"
       };
   firebase.initializeApp(config)
-  database = firebase.database()
 }
 
 export const signupUser = (e,p) => {
@@ -18,8 +21,9 @@ export const signupUser = (e,p) => {
     .then((res) => {
         console.log(res)
     }).catch((e) => { 
-        console.log('------------------' + e)}
-    )
+        console.log(e.code)
+        console.log(e.message)
+    })
 }
 
 export const loginUser = (e,p) => {
@@ -29,8 +33,8 @@ export const loginUser = (e,p) => {
         .then((token) => {
             console.log(token)
         })
-     }).catch(function(error) {
-      console.log('code ' + error.code);
-      console.log('msg ' + error.message);
+     }).catch((e) => {
+      console.log('code ' + e.code);
+      console.log('msg ' + e.message);
     });
 }

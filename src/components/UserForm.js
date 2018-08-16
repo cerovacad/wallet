@@ -21,16 +21,20 @@ class UserForm extends Component {
     onCreateAccount = (e) => {
         console.log(this.state);
     };
+    
     onLogin = (e) => {
-        console.log(this.state);
-        if (
-            this.state.email === 'qwe' &&
-            this.state.password === 'qwe'
-        ) {
-            this.setState((prevState) => {
-                return { ...prevState, redirect: !prevState.redirect }
-            })
-        }
+        // console.log(this.state);
+        const { email, password } = this.state
+        console.log(email, password)
+        this.props.loginHandler(email, password)
+        // if (
+        //     // this.state.email === 'qwe' &&
+        //     // this.state.password === 'qwe'
+        // ) {
+        //     this.setState((prevState) => {
+        //         return { ...prevState, redirect: !prevState.redirect }
+        //     })
+        // }
     };
 
     render() {

@@ -1,4 +1,4 @@
-import { init as firebaseInit, loginUser, signupUser } from './firebase';
+import { init as firebaseInit } from './firebase';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "@blueprintjs/core/lib/css/blueprint.css";
@@ -33,15 +33,6 @@ store.dispatch(addTransaction({
 }));
 
 firebaseInit()
-
-const e = 'nbnvvbv@mikad.com'
-const p = 'qwe1231321'
-
-signupUser(e,p)
-loginUser(e,p)
-
-
-
 
 const App = () => {
     return (

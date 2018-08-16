@@ -5,6 +5,7 @@ import TransactionDescription from "./TransactionDescription";
 import TransactionButtons from "./TransactionButtons";
 import UploadFileList from "./UploadFileList";
 import TransactionStatus from './TransactionStatus';
+import TransactionInfo from './TransactionInfo';
 
 const fileList = [{
     fileName: "Example.jpg",
@@ -17,7 +18,13 @@ const TransactionComponent = ({ transaction, removeTransaction }) =>
             <ContentHeader transaction={transaction} />
             <Card>
                 {/* <div>TRANSACTION STATUS COMPONENT GOES HERE</div> */}
-                <TransactionStatus />
+
+                { transaction.description === 'requesting' ? (
+                    <TransactionStatus transaction={transaction} />
+                ):(
+                    <TransactionInfo transaction={transaction} />
+                )}
+
                 <hr className="transaction__container__hr" />
                 <TransactionDescription
                     longDescription={transaction.longDescription}

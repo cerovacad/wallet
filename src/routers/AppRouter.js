@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainPage from '../pages/MainPage';
-import Login from "../pages/SignUp";
-import SignUp from "../pages/Login";
+import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 
 
 const AppRouter = () => {
