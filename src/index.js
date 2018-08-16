@@ -5,7 +5,7 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/datetime/lib/css/blueprint-datetime.css";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-import AppRouter, { history } from "./routers/AppRouter";
+import AppRouter from "./routers/AppRouter";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import { addTransaction } from './actions/transactionActions';

@@ -1,17 +1,14 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import MainPage from '../pages/MainPage';
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import createHistory from 'history/createBrowserHistory';
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
-export const history = createHistory();
-
 const AppRouter = () => {
   return (
-    <Router history={history} >
+    <BrowserRouter >
       <div>
         <Switch>
           <PrivateRoute path="/" component={MainPage} exact />
@@ -19,7 +16,7 @@ const AppRouter = () => {
           <PublicRoute path='/login' component={Login} />
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
