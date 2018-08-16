@@ -4,12 +4,18 @@
     font-weight: 800;
     margin: 0 auto;
     padding: 4.2rem 3rem 7.3rem 3rem;
-    @extend .container; 
+    @extend .container;
 }
 
 .user-form__buttons {
     margin: 1.8rem auto;
     width: 45%;
+}
+
+.user-form__link {
+    font-weight: 100;
+    text-decoration-style: none;
+    text-align: center;
 }
 
 .user-form__message {
