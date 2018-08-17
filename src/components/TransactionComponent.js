@@ -29,7 +29,7 @@ const TransactionComponent = ({ transaction, removeTransaction }) =>
                 <TransactionDescription
                     longDescription={transaction.longDescription}
                 />
-                <UploadFileList fileList={fileList} />
+                <UploadFileList fileList={transaction.fileList} />
                 <TransactionButtons
                     description={transaction.description}
                     id={transaction.id}

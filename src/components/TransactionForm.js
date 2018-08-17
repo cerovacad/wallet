@@ -71,7 +71,7 @@ class TransactionForm extends Component {
     };
 
     onSubmitForm = () => {
-        const { title, price, description, deadline, user } = this.state;
+        const { title, price, description, deadline, user, fileList } = this.state;
         if (title
             && price
             && user
@@ -84,6 +84,7 @@ class TransactionForm extends Component {
                     description: "sending",
                     longDescription: description,
                     user,
+                    fileList,
                     balance: price,
                     deadline: moment(deadline).format("Do MMMM YYYY")
                 })
@@ -96,6 +97,7 @@ class TransactionForm extends Component {
                     longDescription: description,
                     description: "requesting",
                     user,
+                    fileList,
                     balance: price,
                     deadline: moment(deadline).format("Do MMMM YYYY")
                 })
