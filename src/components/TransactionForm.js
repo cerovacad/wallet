@@ -6,8 +6,8 @@ import ContentHeader from "../components/ContentHeader";
 import UploadFileList from "../components/UploadFileList";
 import moment from "moment";
 import UploadedFile from "../entities/UploadedFile";
-import {connect} from 'react-redux';
-import {addTransaction} from '../actions/transactionActions';
+import { connect } from 'react-redux';
+import { addTransaction } from '../actions/transactionActions';
 
 class TransactionForm extends Component {
     state = {
@@ -99,6 +99,7 @@ class TransactionForm extends Component {
                 })
                 this.clearInputs();
             }
+            this.props.closeForm();
         };
     };
 
