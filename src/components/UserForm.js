@@ -40,25 +40,26 @@ class UserForm extends Component {
         this.setState({ showResetCtrl: !this.state.showResetCtrl })
     }
     onSendResetMail = () => {
-        console.log(this.state.resetEmail)
-        resetPass(this.state.resetEmail)
-        .then(
-            this.setState({
-                checkMail: true,
-                showResetCtrl: false
+        if(this.state.resetEmail !=="") {
+            resetPass(this.state.resetEmail)
+            .then(
+                this.setState({
+                    checkMail: true,
+                    showResetCtrl: false
+                })
+            ).catch((e) => {
+                console.log(e)
             })
-        ).catch((e) => {
-            console.log(e)
-        })
+        }
+        
+
     }
 
     render() {
         return (
             <div className="user-form">
-                {this.state.checkMail ? (
-                    <h1>CHECK YOUR EMAIL RESET LINK HAS BEEN SET</h1>
-                ):("")}
                 {this.state.redirect ? (<Redirect to='/signup' />) : ('')}
+
                 <FormGroup
                     label="Email"
                     labelFor="text-input"
@@ -87,7 +88,7 @@ class UserForm extends Component {
                         minimal
                         active
                         className="bp3-intent-primary vertical-buttons__upper"
-                        text={ "Login" }
+                        text={"Login"}
                         onClick={this.onLogin}
                     />
                     <Button
@@ -95,7 +96,7 @@ class UserForm extends Component {
                         minimal
                         active
                         className="bp3--dark-text-color-muted"
-                        text={ "Create account" }
+                        text={"Create account"}
                         onClick={this.onCreateAccount}
                     />
                 </div>
@@ -121,11 +122,14 @@ class UserForm extends Component {
                                     minimal
                                     active
                                     className="bp3--dark-text-color-muted"
-                                    text={ "Send reset email" }
+                                    text={"Send reset email"}
                                     onClick={this.onSendResetMail}
                                 />
                             </div>
-                        ):( "" )}
+                        ) : ("")}
+                        {this.state.checkMail && this.state.resetEmail ? (
+                            <h1 className='resetMsg' >Check your email reset link has been set</h1>
+                        ) : ("")}
                     </div>
                 }
             </div>
