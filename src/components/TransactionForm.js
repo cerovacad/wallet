@@ -84,7 +84,8 @@ class TransactionForm extends Component {
                     description: "sending",
                     longDescription: description,
                     user,
-                    balance: price
+                    balance: price,
+                    deadline: moment(deadline).format("Do MMMM YYYY")
                 })
                 this.clearInputs();
             }
@@ -95,7 +96,8 @@ class TransactionForm extends Component {
                     longDescription: description,
                     description: "requesting",
                     user,
-                    balance: price
+                    balance: price,
+                    deadline: moment(deadline).format("Do MMMM YYYY")
                 })
                 this.clearInputs();
             }
