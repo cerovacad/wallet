@@ -16,6 +16,10 @@ export const init = () => {
     firebase.initializeApp(config)
 }
 
+export const resetPass = (e) => {
+    return firebase.auth().sendPasswordResetEmail(e)
+}
+
 export const signUpUser = (e, p) => {
     return firebase.auth().createUserWithEmailAndPassword(e, p)
 }
