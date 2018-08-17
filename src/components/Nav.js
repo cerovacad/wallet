@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Button, Alignment } from '@blueprintjs/core'
 import { connect } from "react-redux";
-import { logout } from "../actions/authActions";
+import { startLogout } from "../actions/authActions";
 
 const Nav = ({ logout }) => {
     const onUserLogout = () => {
@@ -27,7 +27,7 @@ const Nav = ({ logout }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(startLogout())
 })
 
 export default connect(null, mapDispatchToProps)(Nav);
