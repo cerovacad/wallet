@@ -6,20 +6,10 @@ const login = token => ({ type: LOGIN, token })
 
 export const loginAsync = token => dispatch => dispatch(login(token))
 
-export const signup = (email, pass) => {
+const signUp = (e, p) => ({ type: SIGNUP, e, p})
 
-}
+export const signUpAsync = (e,p) => dispatch => dispatch(signUp(e, p))
 
 export const logout = () => ({
     type: LOGOUT
 });
-
-// function makeASandwichWithSecretSauce(forPerson) {
-
-//   return function (dispatch) {
-//     return fetchSecretSauce().then(
-//       sauce => dispatch(makeASandwich(forPerson, sauce)),
-//       error => dispatch(apologize('The Sandwich Shop', forPerson, error))
-//     );
-//   };
-// }

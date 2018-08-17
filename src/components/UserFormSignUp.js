@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { InputGroup, FormGroup, Button } from "@blueprintjs/core";
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom'
 
 class UserForm extends Component {
     state = {
@@ -19,18 +19,18 @@ class UserForm extends Component {
     };
 
     onCreateAccount = (e) => {
-        this.setState({ redirect: true })
+        const {email, password} = this.state
+        this.props.signUpHandler(email, password)
     };
 
     onLogin = (e) => {
-        const { email, password } = this.state
-        this.props.loginHandler(email, password)
+        this.setState({ redirect: true })
     };
 
     render() {
         return (
             <div className="user-form">
-                {this.state.redirect ? (<Redirect to='/signup' />) : ('')}
+                {this.state.redirect ? (<Redirect to='/login' />) : ('')}
                 <FormGroup
                     label="Email"
                     labelFor="text-input"
@@ -59,18 +59,21 @@ class UserForm extends Component {
                         minimal
                         active
                         className="bp3-intent-primary vertical-buttons__upper"
-                        text={ "Login" }
-                        onClick={this.onLogin}
+                        text={"Create account"}
+                        onClick={this.onCreateAccount}
                     />
-                    <Button
+                    {/* <Button
                         fill
                         minimal
                         active
                         className="bp3--dark-text-color-muted"
-                        text={ "Create account" }
-                        onClick={this.onCreateAccount}
-                    />
+                        text={ "Login" }
+                        onClick={this.onLogin}
+                    /> */}
                 </div>
+                    <div className='user-form__link'>
+                        <Link to='/login'>Already have an account?</Link>
+                    </div>
                 {
                     (this.props.match.path === "/login")
                     && <div className="user-form__message">

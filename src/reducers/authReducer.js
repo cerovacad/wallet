@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "../actions/authActions";
+import { LOGIN, LOGOUT, SIGNUP } from "../actions/authActions";
 
 const defState = {};
 
@@ -10,6 +10,8 @@ export default (state = defState, action) => {
             };
         case LOGOUT:
             return {};
+        case SIGNUP:
+            return state;
         default:
             return state;
     }
